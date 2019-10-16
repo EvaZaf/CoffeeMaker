@@ -72,6 +72,9 @@ public class CoffeeMaker {
 	public void addIngredients(int amtCoffee, int amtMilk, int amtChocolate) throws Exception {
 
 		// TODO: code this method
+		coffee = coffee + amtCoffee;
+		milk = milk + amtMilk;
+		chocolate = chocolate + amtChocolate;
 	}
 
 	/**
@@ -84,6 +87,12 @@ public class CoffeeMaker {
 	public int makeEspresso(int amtPaid) {
 
 		// TODO: code this method
+		
+		if (coffee >= 1){
+			coffee = coffee - 1;
+		}else{
+			System.out.println("Please enter units of coffee to the machine.");
+		}
 		return -1;
 	}
 
@@ -97,6 +106,17 @@ public class CoffeeMaker {
 	public int makeLatte(int amtPaid) {
 
 		// TODO: code this method
-		return -1;
 	}    
+	
+	public int makeCappuccino(int amtPaid){
+		
+		if((milk >=2) && (coffee >=2) && (chocolate >=1)){
+			milk = milk - 2;
+			coffee = coffee - 2;
+			chocolate = chocolate - 1;
+		}else{
+			System.out.println("Please enter units to the machine.");
+		}
+	}
+	
 }

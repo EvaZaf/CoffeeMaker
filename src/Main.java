@@ -71,25 +71,35 @@ public class Main {
 
 		System.out.println("1. Espresso");
 		System.out.println("2. Latte");
-
+		System.out.println("3. Cappuccino");
+		
 		int item = inputOutput("Please enter the item you wish to purchase");
 
 		int amtPaid = inputOutput("Please enter the amount you are paying");
 
-		if (item >= 1 && item <=2) {
+		if (item >= 1 && item <=3) {
 			int change = 0;
+			int price = 0; // initialize price
 			switch (item) {
 			case 1:
 				change = coffeeMaker.makeEspresso(amtPaid);
+				price = 1; //price for espresso
 				break;
 			case 2:
 				change = coffeeMaker.makeLatte(amtPaid);
+				price = 2; //price for latte
 				break;
+			case 3:
+				change = coffeeMaker.makeCappuccino(amtPaid);
+				price = 3; //price for chocolate
 			}
 
 			if (change == amtPaid) {
 				System.out.println("Insufficient funds to purchase.");
-			} else {
+			}
+			else if (amtPaid < price){
+				System.out.println("Insufficient funds to purchase.");
+			}else {
 				System.out.println("Thanks for purchasing");
 			}
 			System.out.println("Your change is: " + change + "\n");
